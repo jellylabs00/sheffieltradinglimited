@@ -18,31 +18,31 @@ export default function Footer() {
         visible: {
             y: 0,
             opacity: 1,
-            transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }
+            transition: { duration: 2, ease: [0.25, 0.1, 0.25, 1] }
         }
     };
-    const header =[
+    const header = [
         {
-            title:'info@influenceprotrading.com',
-            icon:'Mail',
-            link:'/'
+            title: 'info@influenceprotrading.com',
+            icon: 'Mail',
+            link: '/'
         },
         {
-            title:'123 Main St, Anytown, USA',
-            icon:'MapPin',
-            link:'/'
+            title: '123 Main St, Anytown, USA',
+            icon: 'MapPin',
+            link: '/'
         },
         {
-            title:'+1 (555) 123-4567',
-            icon:'Phone',
-            link:'/'
+            title: '+1 (555) 123-4567',
+            icon: 'Phone',
+            link: '/'
         }
     ]
     return (
-        <div className="bg-[#0466c8] px-10 py-10 relative z-10">
-            <div className="grid grid-cols-2">
+        <div className="bg-[#0466c8] md:p-10 p-4 relative z-10 overflow-hidden">
+            <div className="grid md:grid-cols-2 grid-cols-1 md:gap-0 gap-10">
                 <div>
-                    <ul className="flex gap-20 text-white underline underline-offset-4 text-xl uppercase anton-regular">
+                    <ul className="flex md:gap-20 gap-10 text-white underline underline-offset-4 text-xl uppercase anton-regular">
                         {['About us', 'Service', 'logistic', 'faq'].map((item, i) => (
                             <motion.li
                                 key={item}
@@ -58,7 +58,7 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div>
-                    <div className="flex gap-5 text-white">
+                    <div className="flex flex-col md:flex-row gap-5 text-white">
                         {header.map((item, i) => (
                             <motion.div
                                 key={item}
@@ -72,32 +72,32 @@ export default function Footer() {
                                 <p>{item.title}</p>
                             </motion.div>
                         ))}
-                        
+
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-2 mt-20">
+            <div className="grid md:grid-cols-2 grid-cols-1 md:mt-20 mt-0">
                 <div>
                     <img src="/assets/img/footer-logo.svg" alt="logo" />
                 </div>
-                <div className="anton-regular flex flex-col justify-center items-start text-[128px] leading-[1] text-white uppercase ">
+                <div className="anton-regular flex flex-col justify-center items-start md:text-[128px] text-[64px] leading-[1] text-white uppercase">
                     <div className="">
-                        <motion.h1 initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={slideUp}>influence pro</motion.h1>
+                        <motion.h1 initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={slideUp}>influence pro</motion.h1>
                     </div>
                     <div className="">
-                        <motion.h1 initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={slideUp}>trading</motion.h1>
+                        <motion.h1 initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={slideUp}>trading</motion.h1>
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-2 mt-20">
+            <div className="grid md:grid-cols-2 grid-cols-1 md:mt-20 mt-10">
                 <div>
-                    <p className="anton-regular text-xl text-white">
+                    <p className="anton-regular text-xl leading-[1] text-white">
                         influence pro trading ©2024, logistic provider
                     </p>
                 </div>
-                <div className="anton-regular flex text-xl justify-between items-start leading-[1] text-white uppercase ">
+                <div className="anton-regular flex mt-5 md:mt-0 flex-col md:flex-row text-xl justify-between items-start leading-[1] text-white uppercase ">
                     <p>all rights reserved</p>
-                    <p>Developed by JellyLabs.co.uk</p>
+                    <p className="mt-5 md:mt-0">Developed by JellyLabs.co.uk</p>
                 </div>
             </div>
         </div>

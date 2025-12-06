@@ -40,9 +40,9 @@ export default function Section() {
     ];
 
     return (
-        <div className="p-10 relative z-10 before:content-[''] before:z-0 before:absolute before:top-0 before:left-0 before:w-full before:h-[32rem] before:bg-[linear-gradient(175deg,_#203c5c_-15.77%,_#d2dde9_81.91%)] bg-[#d2dde9]">
+        <div className="p-4 relative z-10 before:content-[''] before:z-0 before:absolute before:top-0 before:left-0 before:w-full before:h-[32rem] before:bg-[linear-gradient(175deg,_#203c5c_-15.77%,_#d2dde9_81.91%)] bg-[#d2dde9]">
             {/* Container shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]*/}
-            <div className="grid grid-cols-4 h-[600px] bg-transparent content-visibility:auto anton-regular " >
+            <div className="grid md:grid-cols-4 grid-cols-2 h-[600px] bg-transparent content-visibility:auto anton-regular " >
                 {cards.map((card) => (
                     <Card
                         key={card.id}

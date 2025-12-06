@@ -71,17 +71,20 @@ export default function Faq() {
     };
 
     return (
-        <div className='bg-[#d2dde9] px-10 min-h-screen py-10 relative z-10'>
+        <div className='bg-[#d2dde9] md:px-10 px-4 py-10 relative z-10'>
             <div>
-                <div className="grid grid-cols-2 uppercase anton-regular mb-20">
-                    <div>
+                <div className="grid md:grid-cols-2 grid-cols-1 uppercase anton-regular mb-10 md:mb-20">
+                    <div className='flex items-center justify-between md:mb-0 mb-10'>
                         <h2 className='text-[32px] leading-[1] w-[200px] text-[#ff3d00]'>still have doubts?</h2>
+                         <div className='md:w-30 md:h-30 w-20 h-20 bg-[#ff3d00] text-white md:hidden flex items-center justify-center rounded-full'>
+                            <ArrowDownLeft />
+                        </div>
                     </div>
                     <div className='flex items-center justify-between'>
                         <div>
-                            <h1 className='text-[32px] leading-[1] w-[500px] text-[#203c5c]'>Contact us to get all your questions answered for sure</h1>
+                            <h1 className='text-[32px] leading-[1] max-w-[500px]  text-[#203c5c]'>Contact us to get all your questions answered for sure</h1>
                         </div>
-                        <div className='w-30 h-30 bg-[#ff3d00] text-white flex items-center justify-center rounded-full'>
+                        <div className='w-30 h-30 bg-[#ff3d00] text-white md:flex hidden items-center justify-center rounded-full'>
                             <ArrowDownLeft />
                         </div>
                     </div>
@@ -99,10 +102,10 @@ export default function Faq() {
                             variants={itemVariants}
                         >
                             <div
-                                className='grid grid-cols-2 anton-regular uppercase py-3 cursor-pointer'
+                                className='grid md:grid-cols-2 grid-cols-1 anton-regular uppercase py-3 cursor-pointer'
                                 onClick={() => toggleFaq(index)}
                             >
-                                <div>
+                                <div className='md:block hidden'>
                                     <h2 className='text-2xl manrope text-[#203c5c]'>{faq.number}</h2>
                                 </div>
                                 <div className='flex items-center justify-between'>
@@ -121,7 +124,7 @@ export default function Faq() {
                             <AnimatePresence initial={false}>
                                 {openIndex === index && (
                                     <motion.div
-                                        className='grid grid-cols-2 overflow-hidden'
+                                        className='grid md:grid-cols-2 grid-cols-1 overflow-hidden'
                                         initial="hidden"
                                         animate="visible"
                                         exit="hidden"

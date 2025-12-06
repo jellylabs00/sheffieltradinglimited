@@ -1,7 +1,19 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import StickyBox from "react-sticky-box";
 
 export default function Crone() {
-    // Animation variants for reusability
+    const containerRef = useRef(null);
+
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
+
+    // Transform for the container to move down as you scroll
+    const containerY = useTransform(scrollYProgress, [0, 1], [0, 400]);
+
+    // Animation variants
     const slideUp = {
         hidden: { y: 100, opacity: 0 },
         visible: {
@@ -34,10 +46,10 @@ export default function Crone() {
     };
 
     return (
-        <div>
+        <div ref={containerRef}>
             <div className="relative bg-[#d2dde9] z-10">
                 {/* Clouds - Background layer */}
-                <div className="absolute top-10 left-0 z-[1] w-full">
+                <div className="absolute top-10 left-0 z-1 w-full">
                     <img src="/assets/img/clouds-d.webp" alt="" className="w-[70%] h-full" />
                 </div>
 
@@ -48,17 +60,25 @@ export default function Crone() {
                     className="absolute top-0 left-0 z-[2] w-[53%] h-auto object-cover"
                 />
 
-                {/* Container - Sticky, centered, pins when scrolling */}
-                <div className="sticky top-[100px] z-[10] flex justify-center pointer-events-none">
-                    <div className="w-[500px] after:content-[''] after:absolute after:-top-12 after:left-1/2 after:-translate-x-1/2 after:w-[1px] after:h-[100px] after:bg-[#203c5c33]">
-                        <img src="/assets/img/2.png" alt="container" className="w-full h-auto object-cover" />
-                    </div>
+                {/* Container with StickyBox - FIXED VERSION */}
+                <div className=" hidden md:block absolute top-[830px] left-0 z-10 w-full" style={{ minHeight: '1700px' }}>
+                    <StickyBox offsetTop={10} offsetBottom={0}>
+                        <div
+                            // style={{ y: containerY }}
+                            className="flex justify-center pointer-events-none"
+                        >
+                            <div className="w-[500px] relative after:content-[''] after:absolute after:-top-12 after:left-1/2 after:-translate-x-1/2 after:w-[1px] after:h-[100px] after:bg-[#203c5c33]">
+                                <img src="/assets/img/2.png" alt="container" className="w-full h-auto object-cover" />
+                            </div>
+                        </div>
+                    </StickyBox>
                 </div>
 
-                {/* Main content - positioned above sticky container */}
-                <div className="p-4 z-[5] relative -mt-[500px]">
+
+                {/* Main content */}
+                <div className="p-4 z-5 relative">
                     {/* Hero Title */}
-                    <div className="uppercase text-[200px] text-white flex justify-end items-end flex-col anton-regular">
+                    <div className="uppercase md:text-[200px] leading-[1] text-[60px] text-white flex justify-end items-end flex-col anton-regular">
                         <div className="overflow-hidden">
                             <motion.h1
                                 initial="hidden"
@@ -69,7 +89,7 @@ export default function Crone() {
                                 Influence pro
                             </motion.h1>
                         </div>
-                        <div className="overflow-hidden mt-[-120px]">
+                        <div className="overflow-hidden">
                             <motion.h1
                                 initial="hidden"
                                 whileInView="visible"
@@ -90,7 +110,7 @@ export default function Crone() {
 
                     {/* Navigation Links */}
                     <div className="flex justify-end">
-                        <ul className="flex gap-20 text-[#203c5c] underline underline-offset-4 text-xl uppercase anton-regular">
+                        <ul className="flex md:gap-20 gap-10 text-[#203c5c] underline underline-offset-4 text-xl uppercase anton-regular">
                             {['About us', 'Service', 'logistic'].map((item, i) => (
                                 <motion.li
                                     key={item}
@@ -126,7 +146,7 @@ export default function Crone() {
                     </motion.div>
 
                     {/* Secondary Title with Viewport Trigger */}
-                    <div className="uppercase text-8xl mt-10 text-white flex justify-end items-start flex-col anton-regular">
+                    <div className="uppercase md:text-8xl text-[50px] mt-10 leading-[1] text-white flex justify-end items-start flex-col anton-regular">
                         {['Empowering your', 'growth through', 'partnership'].map((text, i) => (
                             <div key={i} className="">
                                 <motion.h2
@@ -144,20 +164,20 @@ export default function Crone() {
                 </div>
 
                 {/* Content Sections with Scroll Triggers */}
-                <div className="m-4 space-y-8 relative z-[5]">
+                <div className="m-4 space-y-8 relative z-5">
                     <div className="">
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={fadeInUp}
-                            className="flex flex-col justify-end items-end"
+                            className="flex flex-col justify-end md:items-end items-start"
                         >
                             <div>
                                 <h2 className="anton-regular text-3xl uppercase text-start mb-5 text-[#203c5c]">
                                     experience and <br /> expertise
                                 </h2>
-                                <p className="w-[370px] manrope text-start text-[12px] text-[#203c5c]" style={{ lineHeight: '150%' }}>
+                                <p className="max-w-[370px] manrope text-start text-[12px] text-[#203c5c]" style={{ lineHeight: '150%' }}>
                                     At Influence Pro Trading, we are more than just a
                                     wholesale distributor; we are a strategic partner
                                     committed to fueling your business's growth. With years of
@@ -180,7 +200,7 @@ export default function Crone() {
                                 <h2 className="anton-regular text-3xl uppercase text-start mb-5 text-[#203c5c]">
                                     tailored solutions<br />for every need
                                 </h2>
-                                <p className="w-[370px] manrope text-start text-[12px] text-[#203c5c]">
+                                <p className="max-w-[370px] manrope text-start text-[12px] text-[#203c5c]">
                                     We understand that in a fast-paced world, businesses need
                                     reliable suppliers who can offer not just products, but
                                     solutions. That's why we focus on providing tailored
@@ -200,13 +220,13 @@ export default function Crone() {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.5 }}
                             variants={fadeInUp}
-                            className="flex flex-col justify-end items-end"
+                            className="flex flex-col justify-end md:items-end items-start"
                         >
                             <div>
                                 <h2 className="anton-regular text-3xl uppercase text-start mb-5 text-[#203c5c]">
                                     dedicated to your<br /> success
                                 </h2>
-                                <p className="w-[370px] manrope text-start text-[12px] text-[#203c5c]">
+                                <p className="max-w-[370px] manrope text-start text-[12px] text-[#203c5c]">
                                     Our team is dedicated to building long-lasting
                                     relationships with our clients. We believe in a
                                     partnership approach, working closely with you to
@@ -220,12 +240,12 @@ export default function Crone() {
                 </div>
 
                 {/* Why Choose Us Section */}
-                <div className="relative pb-20 z-[5]">
+                <div className="relative pb-20 z-5">
                     <div className="top-30 absolute z-1">
                         <img src="/assets/img/why-clouds.webp" alt="" className="w-full h-full" />
                     </div>
-                    <div className="relative px-4 z-5">
-                        <div className="uppercase anton-regular text-white flex justify-between text-[240px] overflow-hidden">
+                    <div className="relative px-4 z-5 ">
+                        <div className="uppercase anton-regular text-white flex justify-between md:text-[240px] text-[70px] ">
                             <motion.span
                                 initial="hidden"
                                 whileInView="visible"
@@ -269,32 +289,43 @@ export default function Crone() {
                                     transition: { duration: 0.8, ease: "easeOut", delay: 0.3 }
                                 }
                             }}
-                            className="absolute right-1/2 translate-x-1/2 uppercase anton-regular text-[240px] text-white flex justify-center"
+                            className="absolute right-1/2 translate-x-1/2 uppercase anton-regular md:text-[240px] text-[70px] text-white flex justify-center"
                         >
                             us?
                         </motion.span>
                     </div>
 
+                    <div className=" md:hidden relative  left-0 z-10 w-full" >
+                        <div
+                            // style={{ y: containerY }}
+                            className="flex justify-center pointer-events-none"
+                        >
+                            <div className="w-[500px] relative after:content-[''] after:absolute after:bottom-[600px] after:left-1/2 after:-translate-x-1/2 after:w-[1px] after:h-[1200px] after:bg-[#203c5c33]">
+                                <img src="/assets/img/2.png" alt="container" className="w-full h-auto object-cover" />
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Statistics Section */}
-                    <div className="flex flex-rows px-4 mt-30 justify-between items-center">
+                    <div className="flex md:flex-rows flex-col px-4 md:mt-30 justify-between gap-10 md:gap-0 items-center">
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.5 }}
                             variants={fadeInUp}
-                            className="flex flex-col justify-end items-end"
+                            className="flex flex-col justify-end md:items-end items-center"
                         >
-                            <div className="mb-20">
+                            <div className="md:mb-20 mb-10">
                                 <div className="uppercase anton-regular text-center text-[#203c5c]">
                                     <h2 className="text-[2rem]">20+</h2>
-                                    <p className="text-xl leading-[1]">Countries we<br />cooperate with</p>
+                                    <p className="text-xl leading-none">Countries we<br />cooperate with</p>
                                 </div>
                                 <div>
                                     <img src="/assets/img/why-icon.svg" className="w-[150px]" alt="icon" />
                                 </div>
                             </div>
                             <div>
-                                <p className="manrope text-[12px] text-[#203c5c] w-[320px] pl-5 text-end">
+                                <p className="manrope text-[12px] text-[#203c5c] w-[320px] md:pl-5 pl-0 md:text-end text-center">
                                     At Influence Pro Trading, we aspire to redefine global
                                     wholesale distribution by offering exceptional quality and
                                     innovative solutions. Our goal is to be the trusted
@@ -316,19 +347,19 @@ export default function Crone() {
                                     transition: { duration: 0.6, ease: "easeOut", delay: 0.2 }
                                 }
                             }}
-                            className="flex flex-col justify-start items-start"
+                            className="flex flex-col justify-start md:items-start items-center"
                         >
-                            <div className="mb-20">
+                            <div className="md:mb-20 mb-10">
                                 <div className="uppercase anton-regular text-center text-[#203c5c]">
                                     <h2 className="text-[2rem]">100+</h2>
-                                    <p className="text-xl leading-[1]">successful<br />deliveries</p>
+                                    <p className="text-xl leading-none">successful<br />deliveries</p>
                                 </div>
                                 <div>
                                     <img src="/assets/img/why-icon.svg" className="w-[150px]" alt="icon" />
                                 </div>
                             </div>
                             <div>
-                                <p className="manrope text-[12px] text-[#203c5c] w-[320px] pr-5 text-start">
+                                <p className="manrope text-[12px] text-[#203c5c] w-[320px] md:pr-5 p-0 md:text-start text-center">
                                     At Influence Pro Trading, we aspire to redefine global
                                     wholesale distribution by offering exceptional quality and
                                     innovative solutions. Our goal is to be the trusted
