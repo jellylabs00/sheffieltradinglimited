@@ -73,7 +73,7 @@ export default function Faq() {
     return (
         <div className='bg-[#d2dde9] md:px-10 px-4 py-10 relative z-10'>
             <div>
-                <div className="grid md:grid-cols-2 grid-cols-1 uppercase anton-regular mb-10 md:mb-20">
+                <div className="grid xl:grid-cols-2 grid-cols-1 uppercase anton-regular mb-10 lg:mb-20">
                     <div className='flex items-center justify-between md:mb-0 mb-10'>
                         <h2 className='text-[32px] leading-[1] w-[200px] text-[#ff3d00]'>still have doubts?</h2>
                          <div className='md:w-30 md:h-30 w-20 h-20 bg-[#ff3d00] text-white md:hidden flex items-center justify-center rounded-full'>

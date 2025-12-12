@@ -31,7 +31,7 @@ const Card = ({ color, title, subtitle, img, id }) => {
 };
 
 export default function Section() {
-    // Data for the cards
+    // Data for the cards before:content-[''] before:z-0 before:absolute before:top-0 before:left-0 before:w-full before:h-[32rem] before:bg-[linear-gradient(175deg,_#203c5c_-15.77%,_#d2dde9_81.91%)]
     const cards = [
         { id: 1, img: "https://images.unsplash.com/photo-1605732563938-8f8d4e7ad651?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", color: "bg-red-500", title: "Part", subtitle: "Company Introduction" },
         { id: 2, img: "https://images.unsplash.com/photo-1670121180530-cfcba4438038?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", color: "bg-green-500", title: "Part", subtitle: "History of Sheffield Trading" },
@@ -40,9 +40,9 @@ export default function Section() {
     ];
 
     return (
-        <div className="p-4 relative z-10 before:content-[''] before:z-0 before:absolute before:top-0 before:left-0 before:w-full before:h-[32rem] before:bg-[linear-gradient(175deg,_#203c5c_-15.77%,_#d2dde9_81.91%)] bg-[#d2dde9]">
+        <div className="lg:px-20 px-4 py-25 relative z-10  bg-[#0466c8]">
             {/* Container shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]*/}
-            <div className="grid md:grid-cols-4 grid-cols-2 h-[600px] bg-transparent content-visibility:auto anton-regular " >
+            <div className="grid md:grid-cols-4 grid-cols-2 h-[600px] bg-transparent content-visibility:auto anton-regular shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]" >
                 {cards.map((card) => (
                     <Card
                         key={card.id}

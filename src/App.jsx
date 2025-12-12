@@ -24,15 +24,15 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className='bg-[#d2dde9]'>
       <Hero />
-      <Section />
       <Crone />
+      <Section />
       <Service />
       <Ship />
       <Faq />
       <Footer />
-    </>
+    </div>
   )
 }
 
