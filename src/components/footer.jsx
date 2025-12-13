@@ -103,7 +103,7 @@ export default function Footer() {
                 <div className="anton-regular flex mt-5 lg:mt-0  md:flex-row  justify-between items-start leading-[1] text-white uppercase ">
                     <p>all rights reserved</p>
                     
-                    <a href="https://jellylabs.co.uk/jellycreatives/" target="_blank">Developed by JellyLabs.co.uk</a>
+                    <a href="https://jellylabs.co.uk/jellycreatives/" target="_blank">Developed by JellyCreatives</a>
                 </div>
             </div>
         </div>
