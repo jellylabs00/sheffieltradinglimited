@@ -1,9 +1,15 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 import StickyBox from "react-sticky-box";
 
 export default function Crone() {
     const containerRef = useRef(null);
+
+    const count = useMotionValue(0);
+    const rounded = useTransform(count, latest => Math.round(latest));
+    const count2 = useMotionValue(0);
+    const rounded2 = useTransform(count2, latest => Math.round(latest));
+
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -69,7 +75,7 @@ export default function Crone() {
                                 className="flex justify-center pointer-events-none"
                             >
                                 <div className="w-[800px] relative ">
-                                <div className="absolute -top-[100px] left-1/2 -translate-x-1/2 w-[2px] h-[200px] bg-[#203c5c] opacity-40 -z-10"></div>
+                                    <div className="absolute -top-[100px] left-1/2 -translate-x-1/2 w-[2px] h-[200px] bg-[#203c5c] opacity-40 -z-10"></div>
                                     <img src="/assets/img/stl-container.png" alt="container" className="w-full h-auto object-cover" />
                                 </div>
                             </div>
@@ -87,7 +93,7 @@ export default function Crone() {
                                     viewport={{ once: true, amount: 0.3 }}
                                     variants={slideUp}
                                 >
-                                    Influence pro
+                                    Global Industrial
                                 </motion.h1>
                             </div>
                             <div className="overflow-hidden">
@@ -104,15 +110,15 @@ export default function Crone() {
                                         }
                                     }}
                                 >
-                                    trading
+                                    Sourcing
                                 </motion.h1>
                             </div>
                         </div>
 
                         {/* Navigation Links */}
                         <div className="flex justify-end">
-                            <ul className="flex md:gap-20 gap-10 text-[#203c5c] underline underline-offset-4 text-xl uppercase anton-regular">
-                                {['About us', 'Service', 'logistic'].map((item, i) => (
+                            <ul className="flex md:gap-20 gap-10 text-[#203c5c] text-xl uppercase anton-regular">
+                                {['OEM PARTS', 'TECHNICAL SOURCING', 'GLOBAL DELIVERY'].map((item, i) => (
                                     <motion.li
                                         key={item}
                                         custom={i}
@@ -135,20 +141,17 @@ export default function Crone() {
                             variants={fadeInUp}
                             className="flex flex-col justify-end items-end anton-regular gap-3 mt-5"
                         >
-                            <h2 className="text-[#ff3d00] text-3xl uppercase w-[200px] text-end">
-                                We are the best in our field
+                            <h2 className="text-[#0466c8] text-3xl uppercase max-w-[300px] w-full text-end">
+                                Trusted by Industry Worldwide
                             </h2>
-                            <p className="text-end w-[290px] text-[12px] manrope text-[#203c5c]">
-                                Influence Pro Trading is a dynamic leader in the wholesale
-                                distribution industry, offering an extensive range of
-                                products designed to meet the diverse needs of businesses
-                                globally.
+                            <p className="text-end max-w-[350px] w-full text-[14px] manrope text-[#203c5c]">
+                                We source genuine OEM industrial parts and essential supplies from trusted UK & European manufacturers—then deliver worldwide with the right documentation, packing, and fast turnaround for your projects.
                             </p>
                         </motion.div>
 
                         {/* Secondary Title with Viewport Trigger */}
                         <div className="uppercase md:text-8xl text-[50px] mt-10 leading-[1] text-white flex justify-end items-start flex-col anton-regular">
-                            {['Empowering your', 'growth through', 'partnership'].map((text, i) => (
+                            {['YOUR TRUSTED', 'PROCUREMENT &', 'EXPORT PARTNER'].map((text, i) => (
                                 <div key={i} className="">
                                     <motion.h2
                                         custom={i}
@@ -176,16 +179,10 @@ export default function Crone() {
                             >
                                 <div>
                                     <h2 className="anton-regular text-3xl uppercase text-start mb-5 text-[#203c5c]">
-                                        experience and <br /> expertise
+                                        Procurement Backed <br /> by Experience
                                     </h2>
-                                    <p className="max-w-[370px] manrope text-start text-[12px] text-[#203c5c]" style={{ lineHeight: '150%' }}>
-                                        At Influence Pro Trading, we are more than just a
-                                        wholesale distributor; we are a strategic partner
-                                        committed to fueling your business's growth. With years of
-                                        experience in the industry, we have honed our expertise to
-                                        offer a vast array of products, including computers,
-                                        electronics, and agricultural supplies, ensuring that we
-                                        cater to a diverse range of industries.
+                                    <p className="max-w-[400px] manrope text-start text-[14px] text-[#203c5c]" style={{ lineHeight: '150%' }}>
+                                        We help businesses source original industrial parts—fast, accurately, and with full export support. Our team understands datasheets, ratings, and compliance requirements, so you receive the right item the first time. With UK/Europe sourcing and global shipping, we keep your supply chain moving.
                                     </p>
                                 </div>
                             </motion.div>
@@ -199,19 +196,10 @@ export default function Crone() {
                             >
                                 <div>
                                     <h2 className="anton-regular text-3xl uppercase text-start mb-5 text-[#203c5c]">
-                                        tailored solutions<br />for every need
+                                        THE RIGHT PARTS.<br />RIGHT ON TIME.
                                     </h2>
-                                    <p className="max-w-[370px] manrope text-start text-[12px] text-[#203c5c]">
-                                        We understand that in a fast-paced world, businesses need
-                                        reliable suppliers who can offer not just products, but
-                                        solutions. That's why we focus on providing tailored
-                                        services that align with your specific needs, whether
-                                        you're looking to equip an entire office, manage a
-                                        large-scale agricultural project, or stay ahead in the
-                                        tech industry. Our global network ensures that we can
-                                        source and deliver the best products from around the
-                                        world, backed by our commitment to quality and customer
-                                        satisfaction.
+                                    <p className="max-w-[400px] manrope text-start text-[14px] text-[#203c5c]">
+                                        We know every project has different requirements—part numbers, specifications, voltages, certifications, and timelines. Sheffield Trading Limited supports you with end-to-end procurement from the UK & Europe, focusing on genuine OEM parts and verified technical matches. From electrical and instrumentation to mechanical, hydraulics, safety, and site supplies, we source, pack, document, and ship globally—so you receive the right items, on time, with complete export paperwork.
                                     </p>
                                 </div>
                             </motion.div>
@@ -227,7 +215,7 @@ export default function Crone() {
                                     <h2 className="anton-regular text-3xl uppercase text-start mb-5 text-[#203c5c]">
                                         dedicated to your<br /> success
                                     </h2>
-                                    <p className="max-w-[370px] manrope text-start text-[12px] text-[#203c5c]">
+                                    <p className="max-w-[400px] manrope text-start text-[14px] text-[#203c5c]">
                                         Our team is dedicated to building long-lasting
                                         relationships with our clients. We believe in a
                                         partnership approach, working closely with you to
@@ -308,30 +296,34 @@ export default function Crone() {
                         </div>
 
                         {/* Statistics Section */}
-                        < div className="flex flex-col md:flex-row  px-4 md:mt-30 justify-between gap-10 md:gap-0 items-center" >
+                        < div className="flex flex-col md:flex-row  px-4 md:mt-50 justify-between gap-10 md:gap-0 items-center" >
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.5 }}
                                 variants={fadeInUp}
-                                className="flex flex-col justify-end md:items-end items-center"
+                                className="flex flex-col justify-end items-center md:items-end items-center"
                             >
-                                <div className="md:mb-20 mb-10">
+                                <div className=" mb-5">
                                     <div className="uppercase anton-regular text-center text-[#203c5c]">
-                                        <h2 className="text-[2rem]">20+</h2>
-                                        <p className="text-xl leading-none">Countries we<br />cooperate with</p>
+                                        <motion.h2
+                                            className="text-[4rem] pl-5 flex justify-center items-baseline gap-1"
+                                            whileInView={() => animate(count, 20, { duration: 2, ease: "easeOut" })}
+                                            viewport={{ once: true }}
+                                        >
+                                            <motion.span>{rounded}</motion.span>
+                                            <span>+</span>
+                                        </motion.h2>
+
+                                        <p className="text-xl leading-none">COUNTRIES WE SERVE</p>
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <img src="/assets/img/why-icon.svg" className="w-[150px]" alt="icon" />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div>
-                                    <p className="manrope text-[12px] text-[#203c5c] w-[320px] md:pl-5 pl-0 md:text-end text-center">
-                                        At Influence Pro Trading, we aspire to redefine global
-                                        wholesale distribution by offering exceptional quality and
-                                        innovative solutions. Our goal is to be the trusted
-                                        partner that drives growth and success for businesses
-                                        worldwide.
+                                    <p className="manrope text-[14px] text-[#203c5c] w-[400px] md:pl-5 pl-0 md:text-end text-center">
+                                        With an international customer base and dependable sourcing network, we provide accurate procurement and export support for critical industrial requirements. Our focus is simple: verified specifications, original parts, and smooth worldwide delivery.
                                     </p>
                                 </div>
                             </motion.div>
@@ -350,22 +342,28 @@ export default function Crone() {
                                 }}
                                 className="flex flex-col justify-start md:items-start items-center"
                             >
-                                <div className="md:mb-20 mb-10">
+                                <div className="mb-5">
                                     <div className="uppercase anton-regular text-center text-[#203c5c]">
-                                        <h2 className="text-[2rem]">100+</h2>
-                                        <p className="text-xl leading-none">successful<br />deliveries</p>
+                                        <motion.h2
+                                            className="text-[4rem] pl-5 flex items-baseline gap-1"
+                                            whileInView={() =>
+                                                animate(count2, 150, { duration: 2, ease: "easeOut" })
+                                            }
+                                            viewport={{ once: true }}
+                                        >
+                                            <motion.span>{rounded2}</motion.span>
+                                            <span>+</span>
+                                        </motion.h2>
+
+                                        <p className="text-xl leading-none">ORDERS FULFILLED</p>
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <img src="/assets/img/why-icon.svg" className="w-[150px]" alt="icon" />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div>
-                                    <p className="manrope text-[12px] text-[#203c5c] w-[320px] md:pr-5 p-0 md:text-start text-center">
-                                        At Influence Pro Trading, we aspire to redefine global
-                                        wholesale distribution by offering exceptional quality and
-                                        innovative solutions. Our goal is to be the trusted
-                                        partner that drives growth and success for businesses
-                                        worldwide.
+                                    <p className="manrope text-[14px] text-[#203c5c] w-[400px] md:pr-5 p-0 md:text-start text-center">
+                                        Every shipment is handled with care—from sourcing the correct item to preparing export packing and courier documents. Our delivery record reflects our focus on speed, accuracy, and smooth international logistics.
                                     </p>
                                 </div>
                             </motion.div>

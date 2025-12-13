@@ -20,7 +20,7 @@ export default function Ship() {
             {/* ===== DESKTOP: Centered floating ship ===== */}
             <motion.div
                 style={{ y: shipY }}
-                className="hidden lg:flex justify-center left-1/2 top-[250px] -translate-x-1/2 absolute z-10 items-center"
+                className="hidden lg:flex justify-center left-1/2 top-[100px] -translate-x-1/2 absolute z-10 items-center"
             >
                 <img src="/assets/img/ship-2.png" alt="Cargo ship" className="w-[30rem] h-auto" />
             </motion.div>
@@ -37,7 +37,7 @@ export default function Ship() {
 
             {/* ===== DESKTOP: Large "SEAFREIGHT" title ===== */}
             <div className="z-1 hidden lg:block">
-                <h1 className="text-[200px] xl:text-[340px] font-bold text-center uppercase anton-regular text-white">seafreight</h1>
+                <h1 className="text-[200px] xl:text-[120px] font-bold text-center uppercase anton-regular text-white">FAST DISPATCH. SAFE DELIVERY</h1>
             </div>
 
             {/* ===== MOBILE/TABLET: Smaller "SEAFREIGHT" title ===== */}
@@ -51,10 +51,10 @@ export default function Ship() {
                 {/* --- Section 1: Global Reach & High Capacity --- */}
                 <div className="flex lg:justify-between justify-start items-start lg:items-center">
                     {/* Left content */}
-                    <div className="flex flex-col lg:items-end items-start w-full lg:w-auto">
+                    <div className="flex flex-col lg:items-end items-start w-full lg:w-auto invisible">
                         <div className="font-bold text-[#203c5c] uppercase lg:text-end text-start text-xl sm:text-2xl lg:text-3xl xl:text-4xl anton-regular">
                             <h2>Global</h2>
-                            <h2>reach</h2>
+                            <h2>DISPATCH</h2>
                         </div>
                         <div className="text-[#203c5c] manrope text-xs sm:text-sm lg:text-end text-start mt-4 lg:mt-5 max-w-[280px] sm:max-w-[320px] lg:max-w-none">
                             <p>We connect you to major ports</p>
@@ -69,13 +69,11 @@ export default function Ship() {
                     {/* Right content - hidden on mobile/tablet */}
                     <div className="hidden lg:flex flex-col items-start">
                         <div className="font-bold text-[#203c5c] uppercase text-3xl xl:text-4xl anton-regular text-start">
-                            <h2>High</h2>
-                            <h2>capacity</h2>
+                            <h2>GLOBAL</h2>
+                            <h2>DISPATCH</h2>
                         </div>
-                        <div className="text-[#203c5c] manrope text-xs xl:text-sm text-start mt-5">
-                            <p>Our ships can transport large volumes</p>
-                            <p>of goods, making maritime freight</p>
-                            <p>ideal for bulk orders and heavy cargo.</p>
+                        <div className="text-[#203c5c] manrope text-xs xl:text-sm text-start mt-5 max-w-[300px]">
+                            <p>We ship worldwide via trusted courier and freight partners, ensuring fast, reliable delivery to your destination.</p>
                         </div>
                         <div className="flex items-center flex-row-reverse w-full mt-8">
                             <div className="xl:max-w-[500px] lg:max-w-[300px] w-[500px] h-[2px] bg-white"></div>
@@ -88,20 +86,18 @@ export default function Ship() {
                 <div className="flex lg:justify-between justify-start items-start lg:items-center">
                     <div className="flex flex-col lg:items-end items-start w-full lg:w-auto">
                         <div className="font-bold text-[#203c5c] uppercase lg:text-end text-start text-xl sm:text-2xl lg:text-3xl xl:text-4xl anton-regular">
-                            <h2>High</h2>
-                            <h2>capacity</h2>
+                            <h2>EXPORT-READY</h2>
+                            <h2>PACKING</h2>
                         </div>
-                        <div className="text-[#203c5c] manrope text-xs sm:text-sm lg:text-end text-start mt-4 lg:mt-5 max-w-[280px] sm:max-w-[320px] lg:max-w-none">
-                            <p>Our ships can transport large volumes</p>
-                            <p>of goods, making maritime freight</p>
-                            <p>ideal for bulk orders and heavy cargo.</p>
+                        <div className="text-[#203c5c] manrope text-xs sm:text-sm lg:text-end text-start mt-4 lg:mt-5 max-w-[300px]">
+                            <p>Professional export packing to protect goods in transit—cartons, pallets, labeling, and handling as required.</p>
                         </div>
                         <div className="flex items-center w-full mt-6 lg:mt-8">
                             <div className="xl:max-w-[500px] lg:max-w-[300px] w-[500px] h-[2px] bg-white"></div>
                             <div className="w-2 h-2 rounded-full bg-white"></div>
                         </div>
                     </div>
-                    <div className="hidden lg:flex flex-col items-start">
+                    <div className="hidden lg:flex flex-col items-start invisible">
                         <div className="font-bold text-[#203c5c] uppercase text-3xl xl:text-4xl anton-regular text-start">
                             <h2>Eco</h2>
                             <h2>friendly</h2>
@@ -112,7 +108,7 @@ export default function Ship() {
                             <p>methods with lower carbon emissions.</p>
                         </div>
                         <div className="flex items-center flex-row-reverse w-full mt-8">
-                           <div className="xl:max-w-[500px] lg:max-w-[300px] w-[500px] h-[2px] bg-white"></div>
+                            <div className="xl:max-w-[500px] lg:max-w-[300px] w-[500px] h-[2px] bg-white"></div>
                             <div className="w-2 h-2 rounded-full bg-white"></div>
                         </div>
                     </div>
@@ -120,7 +116,7 @@ export default function Ship() {
 
                 {/* --- Section 3: Cost Effective --- */}
                 <div className="flex lg:justify-between justify-start items-start lg:items-center">
-                    <div className="flex flex-col lg:items-end items-start w-full lg:w-auto">
+                    <div className="flex flex-col lg:items-end items-start w-full lg:w-auto invisible">
                         <div className="font-bold text-[#203c5c] uppercase lg:text-end text-start text-xl sm:text-2xl lg:text-3xl xl:text-4xl anton-regular">
                             <h2>Cost</h2>
                             <h2>effective</h2>
@@ -131,22 +127,20 @@ export default function Ship() {
                             <p>compared to air or land transport.</p>
                         </div>
                         <div className="flex items-center w-full mt-6 lg:mt-8">
-                           <div className="xl:max-w-[500px] lg:max-w-[300px] w-[500px] h-[2px] bg-white"></div>
+                            <div className="xl:max-w-[500px] lg:max-w-[300px] w-[500px] h-[2px] bg-white"></div>
                             <div className="w-2 h-2 rounded-full bg-white"></div>
                         </div>
                     </div>
                     <div className="hidden lg:flex flex-col items-start">
                         <div className="font-bold text-[#203c5c] uppercase text-3xl xl:text-4xl anton-regular text-start">
-                            <h2>Reliable</h2>
-                            <h2>tracking</h2>
+                            <h2>TRACKED &</h2>
+                            <h2>ON-TIME</h2>
                         </div>
-                        <div className="text-[#203c5c] manrope text-xs xl:text-sm text-start mt-5">
-                            <p>Track your shipments in real-time</p>
-                            <p>with our advanced monitoring system</p>
-                            <p>for complete peace of mind.</p>
+                        <div className="text-[#203c5c] manrope text-xs xl:text-sm text-start mt-5 max-w-[300px]">
+                            <p>Clear tracking and proactive updates from dispatch to delivery—so you stay informed at every step.If you want them to sound more premium or more aggressive (salesy), tell me and I’ll rewrite in that tone.</p>
                         </div>
                         <div className="flex items-center justify-end flex-row-reverse w-full mt-8">
-                           <div className="xl:max-w-[500px] lg:max-w-[300px] w-[500px] h-[2px] bg-white"></div>
+                            <div className="xl:max-w-[500px] lg:max-w-[300px] w-[500px] h-[2px] bg-white"></div>
                             <div className="w-2 h-2 rounded-full bg-white"></div>
                         </div>
                     </div>
@@ -156,9 +150,15 @@ export default function Ship() {
             {/* ===== BROKERAGE SERVICES SECTION ===== */}
             <div className="relative mt-16 md:mt-32 lg:mt-40">
                 {/* Center title - Desktop */}
-                <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full px-4">
+
+                <div className="invisible w-full px-4">
                     <h2 className="text-4xl xl:text-6xl max-w-[800px] mx-auto font-bold text-center uppercase anton-regular text-white leading-tight">
-                        we also provide you with brokerage services:
+                        Procure Smart. Deliver Worldwide
+                    </h2>
+                </div>
+                <div className="hidden lg:block w-full px-4">
+                    <h2 className="text-4xl xl:text-6xl mx-auto font-bold text-center uppercase anton-regular text-white leading-tight">
+                        Procure Smart. Deliver Worldwide
                     </h2>
                 </div>
 
@@ -169,8 +169,8 @@ export default function Ship() {
                     </h2>
                 </div>
 
-                <div className="flex justify-between flex-col lg:flex-row items-start gap-10 md:gap-12 lg:gap-0">
-                    {/* Left broker */}
+                {/* <div className="flex justify-between flex-col lg:flex-row items-start gap-10 md:gap-12 lg:gap-0">
+                    
                     <div className="w-full lg:w-auto">
                         <div className="text-[#203c5c] font-bold text-xl sm:text-2xl lg:text-3xl xl:text-4xl anton-regular lg:text-end text-start">
                             <p className="mb-1">01</p>
@@ -185,7 +185,7 @@ export default function Ship() {
                             </p>
                         </div>
                     </div>
-                    {/* Right broker */}
+                    
                     <div className="w-full lg:w-auto">
                         <div className="text-[#203c5c] font-bold text-xl sm:text-2xl lg:text-3xl xl:text-4xl anton-regular text-start">
                             <p className="mb-1">02</p>
@@ -200,7 +200,7 @@ export default function Ship() {
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

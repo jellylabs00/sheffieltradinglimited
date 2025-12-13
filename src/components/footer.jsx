@@ -42,8 +42,8 @@ export default function Footer() {
         <div className="bg-[#0466c8] md:p-10 p-4 relative z-10 overflow-hidden">
             <div className="grid xl:grid-cols-2 grid-cols-1 gap-10">
                 <div>
-                    <ul className="flex md:gap-20 gap-10 text-white underline justify-between underline-offset-4 text-xl uppercase anton-regular">
-                        {['About us', 'Service', 'logistic', 'faq'].map((item, i) => (
+                    <ul className="flex md:gap-20 gap-10 text-white justify-between  uppercase anton-regular">
+                        {['oem parts','technical sourcing','global delivery'].map((item, i) => (
                             <motion.li
                                 key={item}
                                 custom={i}
@@ -58,7 +58,7 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div>
-                    <div className="flex flex-col md:flex-row justify-between gap-5 text-white manrope">
+                    <div className="flex flex-col md:flex-row justify-between gap-5 text-white manrope ">
                         {header.map((item, i) => (
                             <motion.div
                                 key={item}
@@ -76,33 +76,34 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="grid lg:grid-cols-2 grid-cols-1 mt-10  text-center">
+            <div className="grid lg:grid-cols-2 grid-cols-1 mt-20  text-center">
 
-                <div className="flex justify-center items-start order-2 lg:order-1">
-                    <img src="/assets/img/stl-white.png" alt="logo" className="w-[450px]" />
+                <div className="flex justify-start items-start order-2 lg:order-1">
+                    <img src="/assets/img/stl-white-3.png" alt="logo" className="w-[300px]" />
                 </div>
 
 
-                <div className="anton-regular flex flex-col justify-center items-start xl:text-[100px]  md:text-[60px] text-[40px] leading-[1] text-white uppercase order-1 lg:order-2"
+                <div className="anton-regular flex flex-col justify-center items-end xl:text-[100px]  md:text-[60px] text-[40px] leading-[1] text-white uppercase order-1 lg:order-2"
                 >
                     <div>
                         <motion.h1 initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={slideUp}>Sheffield Trading</motion.h1>
                     </div>
                     <div>
-                        <motion.h1 initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={slideUp}>Limited</motion.h1>
+                        <motion.h1 initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={slideUp} className="text-end">Limited</motion.h1>
                     </div>
                 </div>
             </div>
 
-            <div className="grid lg:grid-cols-2 grid-cols-1 ">
+            <div className="grid lg:grid-cols-2 grid-cols-1 mt-20 uppercase">
                 <div>
-                    <p className="anton-regular text-xl leading-[1] text-white">
-                       Sheffield Trading Limited ©2024, logistic provider
+                    <p className="anton-regular leading-[1] text-white">
+                       Sheffield Trading Limited ©2025, Procurement partner
                     </p>
                 </div>
-                <div className="anton-regular flex mt-5 lg:mt-0  md:flex-row text-xl justify-between items-start leading-[1] text-white uppercase ">
+                <div className="anton-regular flex mt-5 lg:mt-0  md:flex-row  justify-between items-start leading-[1] text-white uppercase ">
                     <p>all rights reserved</p>
-                    <p className="">Developed by JellyLabs.co.uk</p>
+                    
+                    <a href="https://jellylabs.co.uk/jellycreatives/" target="_blank">Developed by JellyLabs.co.uk</a>
                 </div>
             </div>
         </div>

@@ -30,7 +30,7 @@ function App() {
       <Section />
       <Service />
       <Ship />
-      <Faq />
+      {/* <Faq /> */}
       <Footer />
     </div>
   )

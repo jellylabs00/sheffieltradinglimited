@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 export default function Hero() {
     const [open, setOpen] = useState(false);
+    const [hide, setHide] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => {
+            if (window.scrollY > 10) {
+                setHide(true);
+            }
+        };
+
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
     const slideUp = {
         hidden: { y: 100, opacity: 0 },
@@ -24,12 +36,12 @@ export default function Hero() {
 
 
     return (
-       <div className="bg-[url('/assets/img/bg.png')] 2xl:bg-[url('/assets/img/bg-3.png')] bg-fixed bg-cover bg-center min-h-screen relative overflow-hidden" id="home">
+        <div className="bg-[url('/assets/img/bg-3.png')] bg-fixed bg-cover bg-center min-h-screen relative overflow-hidden" id="home">
             {/* Navigation */}
             <nav className="fixed inset-x-0 top-4 md:top-8 z-30">
                 <div className=" px-4 md:px-6 relative flex items-center md:justify-center justify-end">
                     {/* Logo */}
-                    <a href="/" className="absolute left-4 md:left-6 top-1 flex items-center z-40">
+                    <a href="/" className={`fixed left-4 md:left-6 top-2 z-40 transition-all duration-300 ${hide ? "opacity-0 -translate-y-10 pointer-events-none" : "opacity-100"}`}>
                         <img
                             src="/assets/img/logo.png"
                             alt="Sheffield logo"
@@ -39,12 +51,12 @@ export default function Hero() {
 
                     {/* Desktop navbar */}
                     <div className="hidden md:flex items-center bg-white/30 backdrop-blur-md rounded-full px-6 py-3 text-sm">
-                        <ul className="flex gap-8 font-semibold text-gray-800 anton-regular">
-                            <li className="cursor-pointer hover:text-white transition-colors" onClick={() => scrollToSection("home")}>Home</li>
-                            <li className="cursor-pointer hover:text-white transition-colors" onClick={() => scrollToSection("about")}>About</li>
-                            <li className="cursor-pointer hover:text-white transition-colors" onClick={() => scrollToSection("products")}>Products</li>
-                            <li className="cursor-pointer hover:text-white transition-colors" onClick={() => scrollToSection("brochures")}>Brochures</li>
-                            <li className="cursor-pointer hover:text-white transition-colors" onClick={() => scrollToSection("contact")}>Contact</li>
+                        <ul className="flex gap-8 font-semibold text-white anton-regular">
+                            <li onClick={() => scrollToSection("home")} className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">Home</li>
+                            <li className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" onClick={() => scrollToSection("about")}>About</li>
+                            <li className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" onClick={() => scrollToSection("products")}>Products</li>
+                            <li className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" onClick={() => scrollToSection("brochures")}>Brochures</li>
+                            <li className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" onClick={() => scrollToSection("contact")}>Contact</li>
                         </ul>
                     </div>
 
@@ -130,7 +142,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* RIGHT SIDE - Desktop */}
+                {/* RIGHT SIDE - Desktop text-[#789ccd]*/}
                 <div className="hidden xl:flex flex-col justify-center items-start pl-8 lg:pl-16 backdrop-blur-md bg-[#1d3d73]/20 border-l border-white/10 shadow-2xl  relative z-10">
                     <div className="relative z-20 flex items-end gap-3 anton-regular top-10 mb-8">
                         <div className="overflow-hidden">
@@ -138,10 +150,15 @@ export default function Hero() {
                                 initial="hidden"
                                 animate="visible"
                                 variants={slideUp}
-                                className="text-7xl lg:text-9xl font-bold leading-tight drop-shadow-lg text-[#789ccd] uppercase"
+                                className="
+    text-7xl lg:text-9xl font-bold leading-tight uppercase anton-regular
+    bg-gradient-to-b from-white via-white/70 to-transparent
+    bg-clip-text text-transparent
+  "
                             >
                                 Trading
                             </motion.h1>
+
                         </div>
                         <div className="overflow-hidden">
                             <motion.p
@@ -268,7 +285,7 @@ export default function Hero() {
                 {/* Ship Image - Desktop (FIXED position, stays on scroll) */}
                 <div className="hidden xl:block fixed inset-0 pointer-events-none z-1 mb-25 -mr-5">
                     <motion.div
-                        initial={{ x: 100, opacity: 0 }}
+                        initial={{ x: 50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1.8, ease: "easeOut" }}
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] lg:w-[45vw] max-w-4xl"

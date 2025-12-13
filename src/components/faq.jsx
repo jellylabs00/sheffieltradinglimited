@@ -77,7 +77,7 @@ export default function Faq() {
                     <div className='flex items-center justify-between md:mb-0 mb-10'>
                         <h2 className='text-[32px] leading-[1] w-[200px] text-[#ff3d00]'>still have doubts?</h2>
                          <div className='md:w-30 md:h-30 w-20 h-20 bg-[#ff3d00] text-white md:hidden flex items-center justify-center rounded-full'>
-                            <ArrowDownLeft />
+                            <ArrowDownLeft  />
                         </div>
                     </div>
                     <div className='flex items-center justify-between'>
@@ -85,7 +85,7 @@ export default function Faq() {
                             <h1 className='text-[32px] leading-[1] max-w-[500px]  text-[#203c5c]'>Contact us to get all your questions answered for sure</h1>
                         </div>
                         <div className='w-30 h-30 bg-[#ff3d00] text-white md:flex hidden items-center justify-center rounded-full'>
-                            <ArrowDownLeft />
+                            <ArrowDownLeft className="transition-transform duration-300 group-hover:-rotate-50" />
                         </div>
                     </div>
                 </div>

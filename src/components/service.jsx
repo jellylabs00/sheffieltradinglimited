@@ -130,6 +130,14 @@ export default function Service() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const handleScrollToNext = (currentIndex) => {
+        const nextIndex = (currentIndex + 1) % sectors.length;
+        const nextSection = document.getElementById(`sector-${nextIndex}`);
+        if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    };
+
     return (
         <div className="bg-[#0466c8] min-h-screen w-full py-10 md:py-20 relative z-10 " id="products">
 
@@ -216,46 +224,45 @@ export default function Service() {
                 {/* --- COL 1: Sticky Main Title (Left) --- */}
                 <div className="w-1/3 h-screen sticky top-0 flex flex-col justify-center z-10">
                     <div className="anton-regular text-white uppercase lg:text-6xl md:text-3xl leading-[1]">
-                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}>discover premium</motion.h1>
-                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}>products for</motion.h1>
-                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}>every sector</motion.h1>
+                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}>QUALITY INDUSTRIAL</motion.h1>
+                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}>SUPPLIES FOR</motion.h1>
+                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}>EVERY INDUSTRY</motion.h1>
                     </div>
-                    <div className="text-white manrope text-[12px] mt-8 font-light opacity-90">
-                        <p>At Influence Pro Trading, we offer a wide range of </p>
-                        <p>high-quality products to meet the diverse needs of</p>
-                        <p>Our clients:</p>
+                    <div className="text-white manrope text-[12px] max-w-[350px] w-full mt-8 font-light opacity-90">
+                        <p>We support businesses with end-to-end procurement—sourcing original manufacturer parts, matching exact specifications, and arranging reliable global delivery. Whether it’s urgent spares or bulk supply, we keep your operations moving.</p>
                     </div>
                 </div>
 
                 {/* --- COL 2: Sticky Image Display (Center) --- */}
                 <div className="w-1/3 h-screen sticky top-0 flex items-center justify-center z-10 pointer-events-none">
-                    <div className="relative w-full h-[500px] flex items-center justify-center transition-all duration-700 ease-in-out">
-                        <AnimatePresence mode="wait">
-                            <motion.img
-                                initial={{ y: 0 }}
-                                animate={{ y: [0, 10, 0] }}
-                                transition={{
-                                    duration: 2,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                                key={activeindex}
-                                src={sectors[activeindex].img}
-                                alt={sectors[activeindex].title}
-                                variants={imageVariants}
-                                exit="exit"
-                                className="w-full h-full object-contain drop-shadow-2xl absolute"
-                            />
-                        </AnimatePresence>
+                    <div className="relative w-full h-[500px] flex items-center justify-center transition-all duration-700 ease-in-out ">
+                        {/* <AnimatePresence mode="wait"> */}
+                        <motion.img
+                            initial={{ y: 0 }}
+                            animate={{ y: [0, 10, 0] }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            key={activeindex}
+                            src={sectors[activeindex].img}
+                            alt={sectors[activeindex].title}
+                            variants={imageVariants}
+                            exit="exit"
+                            className="w-full h-full object-contain drop-shadow-2xl absolute "
+                        />
+                        {/* </AnimatePresence> */}
                     </div>
                 </div>
 
                 {/* --- COL 3: Scrollable Content (Right) --- */}
                 <div className="w-1/3 relative z-20">
                     <div className="flex flex-col gap-40 my-44">
-                        {sectors.map((sector) => (
+                        {sectors.map((sector, index) => (
                             <div
                                 key={sector.id}
+                                id={`sector-${index}`}
                                 className="sector-section flex flex-col items-center justify-center pr-10"
                             >
                                 <div className={`transition-opacity duration-500`}>
@@ -269,8 +276,8 @@ export default function Service() {
                                     </div>
 
                                     <div className="flex justify-start mt-8">
-                                        <div className="bg-white text-[#0466c8] rounded-full w-32 h-32 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
-                                            <ArrowDownLeft />
+                                        <div onClick={() => handleScrollToNext(index)} className="group bg-white text-[#0466c8] rounded-full w-32 h-32 flex items-center justify-center cursor-pointer transition-transform duration-300 ">
+                                            <ArrowDownLeft className="transition-transform duration-300 group-hover:-rotate-50" />
                                         </div>
                                     </div>
                                 </div>
