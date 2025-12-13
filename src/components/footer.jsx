@@ -78,12 +78,12 @@ export default function Footer() {
             </div>
             <div className="grid lg:grid-cols-2 grid-cols-1 mt-20  text-center">
 
-                <div className="flex justify-start items-start order-2 lg:order-1">
+                <div className="flex lg:justify-start justify-center items-start order-2 lg:order-1">
                     <img src="/assets/img/stl-white-3.png" alt="logo" className="w-[300px]" />
                 </div>
 
 
-                <div className="anton-regular flex flex-col justify-center items-end xl:text-[100px]  md:text-[60px] text-[40px] leading-[1] text-white uppercase order-1 lg:order-2"
+                <div className="anton-regular flex flex-col justify-center items-center lg:justify-center lg:items-center 2xl:text-[100px] lg:text-[80px]  md:text-[60px] text-[40px] leading-[1] text-white uppercase order-1 lg:order-2"
                 >
                     <div>
                         <motion.h1 initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={slideUp}>Sheffield Trading</motion.h1>

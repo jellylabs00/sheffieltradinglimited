@@ -7,15 +7,26 @@ export default function Hero() {
     const [hide, setHide] = useState(false);
 
     useEffect(() => {
+        let lastScrollY = window.scrollY;
+
         const onScroll = () => {
-            if (window.scrollY > 10) {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                // scrolling DOWN
                 setHide(true);
+            } else {
+                // scrolling UP
+                setHide(false);
             }
+
+            lastScrollY = currentScrollY;
         };
 
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
+
 
     const slideUp = {
         hidden: { y: 100, opacity: 0 },
@@ -107,7 +118,7 @@ export default function Hero() {
             <div className="min-h-screen flex flex-col xl:grid xl:grid-cols-2 relative">
                 {/* LEFT SIDE - Desktop */}
                 <div className="hidden xl:flex flex-col justify-center items-end pr-8 lg:pr-16 relative z-0 ">
-                    <div className="2xl:mb-18 mb-30">
+                    <div className="2xl:mb-18 lg:mb-14">
                         <div className="overflow-hidden">
                             <motion.h1
                                 initial="hidden"
@@ -150,11 +161,7 @@ export default function Hero() {
                                 initial="hidden"
                                 animate="visible"
                                 variants={slideUp}
-                                className="
-    text-7xl lg:text-9xl font-bold leading-tight uppercase anton-regular
-    bg-gradient-to-b from-white via-white/70 to-transparent
-    bg-clip-text text-transparent
-  "
+                                className=" text-7xl lg:text-9xl font-bold leading-tight uppercase anton-regular bg-gradient-to-b from-white via-white/70 to-transparent bg-clip-text text-transparent "
                             >
                                 Trading
                             </motion.h1>
@@ -283,7 +290,7 @@ export default function Hero() {
                 </div>
 
                 {/* Ship Image - Desktop (FIXED position, stays on scroll) */}
-                <div className="hidden xl:block fixed inset-0 pointer-events-none z-1 mb-25 -mr-5">
+                <div className="hidden xl:block fixed inset-0 pointer-events-none z-1 2xl:mb-25 lg:mb-22 -mr-5">
                     <motion.div
                         initial={{ x: 50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}

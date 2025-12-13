@@ -85,7 +85,7 @@ export default function Crone() {
                     {/* Main content */}
                     <div className="p-4 z-5 relative">
                         {/* Hero Title */}
-                        <div className="uppercase lg:text-[150px] leading-[1] md:text-[100px] text-[60px] text-white flex justify-end items-end flex-col anton-regular">
+                        <div className="uppercase lg:text-[150px] leading-[1] md:text-[100px] text-[50px] text-white flex justify-end items-end flex-col anton-regular">
                             <div className="overflow-hidden">
                                 <motion.h1
                                     initial="hidden"
@@ -117,7 +117,7 @@ export default function Crone() {
 
                         {/* Navigation Links */}
                         <div className="flex justify-end">
-                            <ul className="flex md:gap-20 gap-10 text-[#203c5c] text-xl uppercase anton-regular">
+                            <ul className="flex md:gap-20 gap-10 text-[#203c5c] md:text-xl text-sm uppercase anton-regular">
                                 {['OEM PARTS', 'TECHNICAL SOURCING', 'GLOBAL DELIVERY'].map((item, i) => (
                                     <motion.li
                                         key={item}
@@ -289,8 +289,8 @@ export default function Crone() {
                                 // style={{ y: containerY }}
                                 className="flex justify-center pointer-events-none"
                             >
-                                <div className="w-[500px] relative after:content-[''] after:absolute after:bottom-[600px] after:left-1/2 after:-translate-x-1/2 after:w-[1px] after:h-[1200px] after:bg-[#203c5c33]">
-                                    <img src="/assets/img/2.png" alt="container" className="w-full h-auto object-cover" />
+                                <div className="w-[800px] relative after:content-[''] after:absolute after:bottom-[340px] after:left-1/2 after:-translate-x-1/2 after:w-[1px] after:h-[1350px] after:bg-[#203c5c33]">
+                                    <img src="/assets/img/stl-container.png" alt="container" className="w-full h-auto object-cover" />
                                 </div>
                             </div>
                         </div>
@@ -322,7 +322,7 @@ export default function Crone() {
                                     </div> */}
                                 </div>
                                 <div>
-                                    <p className="manrope text-[14px] text-[#203c5c] w-[400px] md:pl-5 pl-0 md:text-end text-center">
+                                    <p className="manrope text-[14px] text-[#203c5c] max-w-[400px] w-full md:pl-5 pl-0 md:text-end text-center">
                                         With an international customer base and dependable sourcing network, we provide accurate procurement and export support for critical industrial requirements. Our focus is simple: verified specifications, original parts, and smooth worldwide delivery.
                                     </p>
                                 </div>
@@ -362,7 +362,7 @@ export default function Crone() {
                                     </div> */}
                                 </div>
                                 <div>
-                                    <p className="manrope text-[14px] text-[#203c5c] w-[400px] md:pr-5 p-0 md:text-start text-center">
+                                    <p className="manrope text-[14px] text-[#203c5c] max-w-[400px] w-full md:pr-5 p-0 md:text-start text-center">
                                         Every shipment is handled with care—from sourcing the correct item to preparing export packing and courier documents. Our delivery record reflects our focus on speed, accuracy, and smooth international logistics.
                                     </p>
                                 </div>

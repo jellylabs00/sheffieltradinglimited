@@ -74,7 +74,7 @@ export default function Section() {
         <div className="lg:px-20 px-4 py-25 relative z-10  bg-[#0466c8]">
             {/* Container shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]*/}
             <div>
-                <h1 className="text-7xl font-bold uppercase text-white text-center mx-auto mb-20 anton-regular">Our 4-Step Procurement Process</h1>
+                <h1 className=" lg:text-7xl text-5xl font-bold uppercase text-white text-center mx-auto mb-20 anton-regular">Our 4-Step Procurement Process</h1>
             </div>
             <div className="grid md:grid-cols-4 grid-cols-2 h-[600px] rounded-2xl  content-visibility:auto anton-regular shadow-[0_35px_60px_-15px_rgba(0,0,0,0.9)]" >
                 {cards.map((card) => (

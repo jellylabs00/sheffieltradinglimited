@@ -42,26 +42,24 @@ export default function Ship() {
 
             {/* ===== MOBILE/TABLET: Smaller "SEAFREIGHT" title ===== */}
             <div className="z-1 lg:hidden mb-10">
-                <h1 className="text-[60px] sm:text-[70px] md:text-[80px] font-bold text-start uppercase anton-regular text-white leading-none">sea freight</h1>
+                <h1 className="text-[50px] sm:text-[50px] md:text-[80px] font-bold text-start uppercase anton-regular text-white leading-none">FAST DISPATCH. SAFE DELIVERY</h1>
             </div>
 
             {/* ===== CONTENT SECTIONS ===== */}
-            <div className="flex flex-col gap-16 md:gap-32 lg:gap-40">
+            <div className="flex flex-col gap-16 md:gap-32 lg:gap-40 relative z-20">
 
                 {/* --- Section 1: Global Reach & High Capacity --- */}
                 <div className="flex lg:justify-between justify-start items-start lg:items-center">
                     {/* Left content */}
-                    <div className="flex flex-col lg:items-end items-start w-full lg:w-auto invisible">
-                        <div className="font-bold text-[#203c5c] uppercase lg:text-end text-start text-xl sm:text-2xl lg:text-3xl xl:text-4xl anton-regular">
-                            <h2>Global</h2>
+                    <div className="flex flex-col lg:items-end items-start w-full lg:w-auto lg:invisible">
+                        <div className="font-bold text-[#203c5c] uppercase text-3xl xl:text-4xl anton-regular text-start">
+                            <h2>GLOBAL</h2>
                             <h2>DISPATCH</h2>
                         </div>
-                        <div className="text-[#203c5c] manrope text-xs sm:text-sm lg:text-end text-start mt-4 lg:mt-5 max-w-[280px] sm:max-w-[320px] lg:max-w-none">
-                            <p>We connect you to major ports</p>
-                            <p>worldwide, ensuring reliable delivery</p>
-                            <p>to any destination across the globe.</p>
+                        <div className="text-[#203c5c] manrope text-xs xl:text-sm text-start mt-5 max-w-[300px]">
+                            <p>We ship worldwide via trusted courier and freight partners, ensuring fast, reliable delivery to your destination.</p>
                         </div>
-                        <div className="flex items-center w-full mt-6 lg:mt-8">
+                        <div className="flex items-center flex-row w-full mt-8">
                             <div className="xl:max-w-[500px] lg:max-w-[300px] w-[500px] h-[2px] bg-white"></div>
                             <div className="w-2 h-2 rounded-full bg-white"></div>
                         </div>
@@ -85,7 +83,7 @@ export default function Ship() {
                 {/* --- Section 2: High Capacity (Mobile) & Eco-Friendly --- */}
                 <div className="flex lg:justify-between justify-start items-start lg:items-center">
                     <div className="flex flex-col lg:items-end items-start w-full lg:w-auto">
-                        <div className="font-bold text-[#203c5c] uppercase lg:text-end text-start text-xl sm:text-2xl lg:text-3xl xl:text-4xl anton-regular">
+                        <div className="font-bold text-[#203c5c] uppercase text-3xl xl:text-4xl anton-regular text-start">
                             <h2>EXPORT-READY</h2>
                             <h2>PACKING</h2>
                         </div>
@@ -116,17 +114,15 @@ export default function Ship() {
 
                 {/* --- Section 3: Cost Effective --- */}
                 <div className="flex lg:justify-between justify-start items-start lg:items-center">
-                    <div className="flex flex-col lg:items-end items-start w-full lg:w-auto invisible">
-                        <div className="font-bold text-[#203c5c] uppercase lg:text-end text-start text-xl sm:text-2xl lg:text-3xl xl:text-4xl anton-regular">
-                            <h2>Cost</h2>
-                            <h2>effective</h2>
+                    <div className="flex flex-col lg:items-end items-start w-full lg:w-auto lg:invisible">
+                        <div className="font-bold text-[#203c5c] uppercase text-3xl xl:text-4xl anton-regular text-start">
+                            <h2>TRACKED &</h2>
+                            <h2>ON-TIME</h2>
                         </div>
-                        <div className="text-[#203c5c] manrope text-xs sm:text-sm lg:text-end text-start mt-4 lg:mt-5 max-w-[280px] sm:max-w-[320px] lg:max-w-none">
-                            <p>Maritime shipping offers significant</p>
-                            <p>cost savings for international trade</p>
-                            <p>compared to air or land transport.</p>
+                        <div className="text-[#203c5c] manrope text-xs xl:text-sm text-start mt-5 max-w-[300px]">
+                            <p>Clear tracking and proactive updates from dispatch to delivery—so you stay informed at every step.If you want them to sound more premium or more aggressive (salesy), tell me and I’ll rewrite in that tone.</p>
                         </div>
-                        <div className="flex items-center w-full mt-6 lg:mt-8">
+                        <div className="flex items-center justify-end flex-row w-full mt-8">
                             <div className="xl:max-w-[500px] lg:max-w-[300px] w-[500px] h-[2px] bg-white"></div>
                             <div className="w-2 h-2 rounded-full bg-white"></div>
                         </div>
@@ -151,7 +147,7 @@ export default function Ship() {
             <div className="relative mt-16 md:mt-32 lg:mt-40">
                 {/* Center title - Desktop */}
 
-                <div className="invisible w-full px-4">
+                <div className="lg:invisible hidden w-full px-4">
                     <h2 className="text-4xl xl:text-6xl max-w-[800px] mx-auto font-bold text-center uppercase anton-regular text-white leading-tight">
                         Procure Smart. Deliver Worldwide
                     </h2>
@@ -163,9 +159,9 @@ export default function Ship() {
                 </div>
 
                 {/* Mobile/Tablet title - above content */}
-                <div className="lg:hidden mb-8 md:mb-10">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl max-w-[500px] font-bold text-start uppercase anton-regular text-white leading-tight">
-                        we also provide you with brokerage services:
+                <div className="lg:hidden mb-8 md:mb-10 text-center">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl max-w-[500px] font-bold text-center uppercase anton-regular text-white leading-tight">
+                       Procure Smart. Deliver Worldwide
                     </h2>
                 </div>
 

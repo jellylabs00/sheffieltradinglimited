@@ -150,12 +150,12 @@ export default function Service() {
                 {/* Mobile Header */}
                 <div className="mb-8">
                     <div className="anton-regular text-white uppercase text-4xl leading-tight">
-                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>discover premium</motion.h1>
-                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>products for</motion.h1>
-                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>every sector</motion.h1>
+                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>quality industrial</motion.h1>
+                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>supplies for</motion.h1>
+                        <motion.h1 variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>every industry</motion.h1>
                     </div>
                     <div className="text-white manrope text-xs mt-4 font-light opacity-90">
-                        <p>At Influence Pro Trading, we offer a wide range of high-quality products to meet diverse needs.</p>
+                        <p>We support businesses with end-to-end procurement—sourcing original manufacturer parts, matching exact specifications, and arranging reliable global delivery. Whether it’s urgent spares or bulk supply, we keep your operations moving.</p>
                     </div>
                 </div>
 
@@ -168,11 +168,18 @@ export default function Service() {
                             className="min-w-[85vw] snap-center flex flex-col items-center"
                         >
                             {/* Card Image */}
-                            <div className="w-full h-[300px] mb-6 relative flex items-center justify-center bg-white/5 rounded-2xl overflow-hidden border border-white/10">
-                                <img
+                            <div className="w-full h-[300px] mb-6 relative flex items-center justify-center  rounded-2xl overflow-hidden ">
+                                <motion.img
+                                    initial={{ y: 0 }}
+                                    animate={{ y: [0, 10, 0] }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
                                     src={sector.img}
                                     alt={sector.title}
-                                    className="w-3/4 h-3/4 object-contain drop-shadow-xl"
+                                    className="w-3/4 h-3/4 object-contain drop-shadow-2xl"
                                 />
                             </div>
 
