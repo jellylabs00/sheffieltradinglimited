@@ -28,7 +28,7 @@ export default function Hero() {
             setLoading(true);
 
             const response = await fetch(
-                "http://127.0.0.1:5001/jelly-labs/us-central1/leadapi/send-lead",
+                "https://leadapi-n7gbvladja-uc.a.run.app/send-lead",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
