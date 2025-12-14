@@ -103,7 +103,7 @@ export default function Hero() {
 
 
     return (
-        <div className="bg-[url('/assets/img/bg-3.png')] bg-fixed bg-cover bg-center min-h-screen relative overflow-hidden" id="home">
+        <div className="bg-[url('/assets/img/bg-3.png')]  bg-cover bg-center min-h-screen relative overflow-hidden" id="home">
             {/* Navigation */}
             <nav className="fixed inset-x-0 top-4 md:top-8 z-30">
                 <div className=" px-4 md:px-6 relative flex items-center md:justify-center justify-end">
@@ -361,12 +361,12 @@ export default function Hero() {
                 </div>
 
                 {/* Ship Image - Desktop (FIXED position, stays on scroll) */}
-                <div className="hidden xl:block fixed inset-0 pointer-events-none z-1 2xl:mb-25 lg:mb-22 -mr-5">
+                {/* <div className="hidden xl:block  inset-0 pointer-events-none z-1 "> */}
                     <motion.div
                         initial={{ x: 50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1.8, ease: "easeOut" }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] lg:w-[45vw] max-w-4xl"
+                        className="absolute top-[43%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] lg:w-[45vw] max-w-4xl xl:block hidden"
                     >
                         <img
                             src="/assets/img/ship2.png"
@@ -374,15 +374,15 @@ export default function Hero() {
                             className="w-full h-auto"
                         />
                     </motion.div>
-                </div>
+                {/* </div> */}
 
                 {/* Ship Image - Mobile (FIXED position, stays on scroll) */}
-                <div className="xl:hidden fixed inset-0 pointer-events-none z-0 flex items-center justify-center">
+                {/* <div className="xl:hidden fixed inset-0 pointer-events-none z-0 flex items-center justify-center"> */}
                     <motion.div
                         initial={{ x: 50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1.8, ease: "easeOut" }}
-                        className="w-[90vw] max-w-lg"
+                        className="w-[100vw] max-w-lg xl:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                     >
                         <img
                             src="/assets/img/ship2.png"
@@ -390,7 +390,7 @@ export default function Hero() {
                             className="w-full h-auto "
                         />
                     </motion.div>
-                </div>
+                {/* </div> */}
             </div>
             <>
                 <ToastContainer
