@@ -35,7 +35,7 @@ const Card = ({ color, title, subtitle, img, id, desc }) => {
                 <motion.p
                     variants={descVariants}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="text-xl manrope font-extralight mb-10 z-10 leading-[1]"
+                    className="text-xl hidden lg:block manrope font-extralight mb-10 z-10 leading-[1]"
                 >
                     {desc}
                 </motion.p>

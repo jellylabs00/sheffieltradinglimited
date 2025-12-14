@@ -1,10 +1,66 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Loader2 } from "lucide-react";
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Hero() {
     const [open, setOpen] = useState(false);
     const [hide, setHide] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+        phone: "",
+        region: "",
+    });
+
+    const submitForm = async (e) => {
+        e.preventDefault();
+
+        if (!formData.name || !formData.email || !formData.message || !formData.phone || !formData.region) {
+            toast.warning("Please fill all the fields");
+            return;
+        }
+
+        try {
+            setLoading(true);
+
+            const response = await fetch(
+                "http://127.0.0.1:5001/jelly-labs/us-central1/leadapi/send-lead",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        ...formData,
+                        from: "SheffieldTradingLimited",
+                        toEmail: "shafqathgamer@gmail.com",
+                    }),
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Failed to send message");
+            }
+
+            toast.success("Message sent successfully 🚀");
+
+            // reset form
+            setFormData({
+                name: "",
+                email: "",
+                message: "",
+                phone: "",
+                region: "",
+            });
+        } catch (error) {
+            console.error(error);
+            toast.error("Something went wrong. Please try again ❌");
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
         let lastScrollY = window.scrollY;
@@ -183,34 +239,44 @@ export default function Hero() {
                     <div className="border border-white/10 p-6 rounded-lg shadow-2xl text-white anton-regular w-full max-w-lg bg-black/20">
                         <div className="flex gap-4 mb-4">
                             <input
+                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                 type="text"
                                 placeholder="Name"
+                                required
                                 className="border border-white/10 bg-transparent outline-none rounded-md p-3 w-full text-white placeholder:text-white/60"
                             />
                             <input
+                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 type="email"
+                                required
                                 placeholder="Email"
                                 className="border border-white/10 bg-transparent outline-none rounded-md p-3 w-full text-white placeholder:text-white/60"
                             />
                         </div>
                         <div className="flex gap-4 mb-4">
                             <input
+                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                 type="tel"
+                                required
                                 placeholder="Phone"
                                 className="border border-white/10 bg-transparent outline-none rounded-md p-3 w-full text-white placeholder:text-white/60"
                             />
                             <input
+                                onChange={(e) => setFormData({ ...formData, region: e.target.value })}
                                 type="text"
+                                required
                                 placeholder="Country/Region"
                                 className="border border-white/10 bg-transparent outline-none rounded-md p-3 w-full text-white placeholder:text-white/60"
                             />
                         </div>
                         <textarea
+                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                             placeholder="Message"
+                            required
                             className="border border-white/10 bg-transparent outline-none rounded-md p-3 w-full resize-none text-white placeholder:text-white/60 mb-4"
                         />
-                        <button className="bg-white text-black font-medium py-3 px-6 rounded-md w-full uppercase hover:bg-gray-100 transition-colors">
-                            Get in touch
+                        <button onClick={submitForm} disabled={loading} className="bg-white text-black font-medium py-3 px-6 rounded-md w-full uppercase hover:bg-gray-100 transition-colors cursor-pointer flex items-center justify-center hover:bg-white/80">
+                            {loading ? <Loader2 className="ml-2 animate-spin" /> : 'Get in touch'}
                         </button>
                     </div>
                 </div>
@@ -234,7 +300,7 @@ export default function Hero() {
                                 initial="hidden"
                                 animate="visible"
                                 variants={slideUp}
-                                className="text-xl  font-bold text-white uppercase anton-regular"
+                                className="text-xl  font-bold text-white text-end uppercase anton-regular"
                             >
                                 Limited
                             </motion.h1>
@@ -242,14 +308,16 @@ export default function Hero() {
                     </div>
 
                     {/* Contact Form - Mobile */}
-                    <div className="border border-white/10 p-6 rounded-lg shadow-2xl text-white anton-regular w-full max-w-lg bg-black/20 backdrop-blur-xl my-10">
+                    <div className="border border-white/10 p-4 rounded-lg shadow-2xl text-white anton-regular w-full max-w-lg bg-black/20 backdrop-blur-xl my-10">
                         <div className="flex gap-4 mb-4">
                             <input
+                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                 type="text"
                                 placeholder="Name"
                                 className="border border-white/10 bg-transparent outline-none rounded-md p-3 w-full text-white placeholder:text-white/60"
                             />
                             <input
+                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 type="email"
                                 placeholder="Email"
                                 className="border border-white/10 bg-transparent outline-none rounded-md p-3 w-full text-white placeholder:text-white/60"
@@ -257,22 +325,25 @@ export default function Hero() {
                         </div>
                         <div className="flex gap-4 mb-4">
                             <input
+                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                 type="tel"
                                 placeholder="Phone"
                                 className="border border-white/10 bg-transparent outline-none rounded-md p-3 w-full text-white placeholder:text-white/60"
                             />
                             <input
+                                onChange={(e) => setFormData({ ...formData, region: e.target.value })}
                                 type="text"
                                 placeholder="Country/Region"
                                 className="border border-white/10 bg-transparent outline-none rounded-md p-3 w-full text-white placeholder:text-white/60"
                             />
                         </div>
                         <textarea
+                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                             placeholder="Message"
                             className="border border-white/10 bg-transparent outline-none rounded-md p-3 w-full resize-none text-white placeholder:text-white/60 mb-4"
                         />
-                        <button className="bg-white text-black font-medium py-3 px-6 rounded-md w-full uppercase hover:bg-gray-100 transition-colors">
-                            Get in touch
+                        <button onClick={submitForm} disabled={loading} className="bg-white text-black font-medium py-3 px-6 rounded-md w-full uppercase hover:bg-gray-100 transition-colors cursor-pointer flex items-center justify-center hover:bg-white/80">
+                            {loading ? <Loader2 className="ml-2 animate-spin" /> : 'Get in touch'}
                         </button>
                     </div>
 
@@ -321,6 +392,21 @@ export default function Hero() {
                     </motion.div>
                 </div>
             </div>
+            <>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop
+                    closeOnClick
+                    pauseOnHover
+                    theme="dark"
+                />
+
+                {/* rest of your Hero JSX */}
+            </>
+
         </div>
+
     );
 }

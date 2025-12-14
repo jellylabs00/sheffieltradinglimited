@@ -40,7 +40,7 @@ export default function Footer() {
     ]
     return (
         <div className="bg-[#0466c8] md:p-10 p-4 relative z-10 overflow-hidden">
-            <div className="grid xl:grid-cols-2 grid-cols-1 gap-10">
+            <div className="grid xl:grid-cols-2 grid-cols-1 lg:gap-10 gap-5">
                 <div>
                     <ul className="flex md:gap-20 gap-10 text-white justify-between  uppercase anton-regular">
                         {['oem parts','technical sourcing','global delivery'].map((item, i) => (
@@ -76,7 +76,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="grid lg:grid-cols-2 grid-cols-1 mt-20  text-center">
+            <div className="grid lg:grid-cols-2 grid-cols-1 lg:mt-20 mt-10 text-center">
 
                 <div className="flex lg:justify-start justify-center items-start order-2 lg:order-1">
                     <img src="/assets/img/stl-white-3.png" alt="logo" className="w-[300px]" />
@@ -94,7 +94,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="grid lg:grid-cols-2 grid-cols-1 mt-20 uppercase">
+            <div className="grid lg:grid-cols-2 grid-cols-1 lg:mt-20 mt-10 uppercase">
                 <div>
                     <p className="anton-regular leading-[1] text-white">
                        Sheffield Trading Limited ©2025, Procurement partner
