@@ -16,6 +16,12 @@ export default function Hero() {
         region: "",
     });
 
+    const openPDF = () => {
+        window.open("/assets/pdf/Industrial_Catalouge_STL.pdf", "_blank");
+        setOpen(false); // close mobile menu
+    };
+
+
     const submitForm = async (e) => {
         e.preventDefault();
 
@@ -122,7 +128,7 @@ export default function Hero() {
                             <li onClick={() => scrollToSection("home")} className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">Home</li>
                             <li className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" onClick={() => scrollToSection("about")}>About</li>
                             <li className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" onClick={() => scrollToSection("products")}>Products</li>
-                            <li className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" onClick={() => scrollToSection("brochures")}>Brochures</li>
+                            <li className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"><a href="/assets/pdf/Industrial_Catalouge_STL.pdf" target="_blank" rel="noopener noreferrer">Brochures</a></li>
                             <li className="cursor-pointer transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" onClick={() => scrollToSection("contact")}>Contact</li>
                         </ul>
                     </div>
@@ -159,7 +165,7 @@ export default function Hero() {
                                 <span onClick={() => scrollToSection("products")}>Products</span>
                             </li>
                             <li className="text-2xl cursor-pointer hover:text-gray-300">
-                                <span onClick={() => scrollToSection("brochures")}>Brochures</span>
+                                <span onClick={openPDF}>Brochures</span>
                             </li>
                             <li className="text-2xl cursor-pointer hover:text-gray-300">
                                 <span onClick={() => scrollToSection("contact")}>Contact</span>
@@ -362,34 +368,34 @@ export default function Hero() {
 
                 {/* Ship Image - Desktop (FIXED position, stays on scroll) */}
                 {/* <div className="hidden xl:block  inset-0 pointer-events-none z-1 "> */}
-                    <motion.div
-                        initial={{ x: 50, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1.8, ease: "easeOut" }}
-                        className="absolute top-[43%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] lg:w-[45vw] max-w-4xl xl:block hidden"
-                    >
-                        <img
-                            src="/assets/img/ship2.png"
-                            alt="Container Ship"
-                            className="w-full h-auto"
-                        />
-                    </motion.div>
+                <motion.div
+                    initial={{ x: 50, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 1.8, ease: "easeOut" }}
+                    className="absolute top-[43%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] lg:w-[45vw] max-w-4xl xl:block hidden"
+                >
+                    <img
+                        src="/assets/img/ship2.png"
+                        alt="Container Ship"
+                        className="w-full h-auto"
+                    />
+                </motion.div>
                 {/* </div> */}
 
                 {/* Ship Image - Mobile (FIXED position, stays on scroll) */}
                 {/* <div className="xl:hidden fixed inset-0 pointer-events-none z-0 flex items-center justify-center"> */}
-                    <motion.div
-                        initial={{ x: 50, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1.8, ease: "easeOut" }}
-                        className="w-[100vw] max-w-lg xl:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                    >
-                        <img
-                            src="/assets/img/ship2.png"
-                            alt="Container Ship"
-                            className="w-full h-auto "
-                        />
-                    </motion.div>
+                <motion.div
+                    initial={{ x: 50, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 1.8, ease: "easeOut" }}
+                    className="w-[100vw] max-w-lg xl:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                >
+                    <img
+                        src="/assets/img/ship2.png"
+                        alt="Container Ship"
+                        className="w-full h-auto "
+                    />
+                </motion.div>
                 {/* </div> */}
             </div>
             <>
