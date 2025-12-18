@@ -22,7 +22,7 @@ export default function Ship() {
                 style={{ y: shipY }}
                 className="hidden lg:flex justify-center left-1/2 top-[100px] -translate-x-1/2 absolute z-10 items-center"
             >
-                <img src="/assets/img/ship-2.png" alt="Cargo ship" className="w-[30rem] h-auto" />
+                <img src="/assets/img/ship-2.png" alt="Cargo ship" className="w-[25rem] h-auto" />
             </motion.div>
 
             {/* ===== MOBILE/TABLET: Ship fixed on right side (half visible) ===== */}

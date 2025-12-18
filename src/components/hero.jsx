@@ -41,7 +41,7 @@ export default function Hero() {
                     body: JSON.stringify({
                         ...formData,
                         from: "SheffieldTradingLimited",
-                        toEmail: "shafqathgamer@gmail.com",
+                        toEmail: ["mnmfyn@gmail.com","sales@sheffieldtradinglimited.com"],
                     }),
                 }
             );
@@ -372,7 +372,7 @@ export default function Hero() {
                     initial={{ x: 50, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 1.8, ease: "easeOut" }}
-                    className="absolute top-[43%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] lg:w-[45vw] max-w-4xl xl:block hidden"
+                    className="absolute top-[43vh] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] lg:w-[45vw] max-w-4xl xl:block hidden"
                 >
                     <img
                         src="/assets/img/ship2.png"
